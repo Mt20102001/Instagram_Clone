@@ -91,16 +91,10 @@ img { max-width: 100%; }
     border: none;
     cursor: pointer;
 }
-.header__theme-button-sun {
-    display: none;
-}
-.header__theme-button-moon {
-    display: unset;
-}
 
 .header__search {
-    width: 216px;
-    height: 28px;
+    width: 300px;
+    height: 34px;
 
     display: none;
     align-items: center;
@@ -123,7 +117,7 @@ img { max-width: 100%; }
     border-radius: 4px;
     outline: none;
 
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 300;
     text-decoration: none;
     color: var(--text-light);
@@ -180,7 +174,7 @@ img { max-width: 100%; }
 
 /* Main Content */
 .main-container {
-    background-color: var(--primary);
+    background-color: var(--secondary);
 
     margin-top: var(--header-height);
     margin-bottom: var(--nav-height);
