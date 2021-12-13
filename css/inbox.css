@@ -71,7 +71,7 @@ img {
 .box {
   width: 100%;
   max-width: 935px;
-  max-height: 603px;
+  max-height: 585px;
   padding: 0;
 
   margin: 20px auto 15px auto;
@@ -193,4 +193,46 @@ img {
 
 .side-menu__chat-info span {
   color: var(--text-light);
+}
+
+.box-chat-none-select {
+  width: 60%;
+}
+
+.text-none {
+  display: block;
+  text-align: center;
+  padding-top: 185px;
+}
+
+.logo {
+  display: inline-block;
+}
+
+.mess h1{
+  font-size: 22px;
+  padding-top: 10px;
+}
+
+.mess p{
+  font-size: 14px;
+  padding-top: 10px;
+}
+
+.text-none button{
+  margin-top: 20px;
+  padding: 6px 10px;
+  border: none;
+  font-size: 14px;
+  background-color: #0095F6;
+  color: #fff;
+  border-radius: 6px;
+}
+
+.text-none button:active{
+  background-color: #3cb0fd;
+}
+
+.box-chat-friend-select {
+  display: none;
 }
