@@ -47,7 +47,7 @@ function success() {
         document.getElementById('like-button').style.display = "none";
         document.getElementById('image-button').style.display = "none";
         document.getElementById('send-button').style.display = "block";
-        textChat.style.width = "87.2%";
+        textChat.style.width = "87%";
     }
 }
 
@@ -60,15 +60,19 @@ function SendMess() {
 
     textChat.value = '';
     node.appendChild(textnode);
-    document.getElementById("myList").appendChild(node);
+    document.getElementById('myList').appendChild(node);
 }
+
+// ===================================
+// 
+
 
 // ===================================
 // SEND MESS WHEN TAP ENTER
 textChat.addEventListener("keyup", function(event) {
     if (event.key === 'Enter') {
         event.preventDefault();
-        document.getElementById("send-button").click();
+        document.getElementById('send-button').click();
         success();
     }
 });
