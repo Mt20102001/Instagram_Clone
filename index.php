@@ -16,11 +16,13 @@
             <div class="login__column">
                 <div class="login__box">
                     <img src="images/loginLogo.png" class="login__logo" />
-                    <form action="feed.html" method="get" class="login__form">
-                        <input type="text" name="username" placeholder="Username" required />
-                        <input type="password" name="password" placeholder="Password" required />
-                        <input type="submit" value="Log in" />
+                    <!--  -->
+                    <form action="process-login.php" method="post" class="login__form">
+                        <input type="text" name="txtUsername" placeholder="Username" required />
+                        <input type="password" name="txtPassword" placeholder="Password" required />
+                        <input type="submit" name="loginBtn" value="Log in" />
                     </form>
+                    <!--  -->
                     <span class="login__divider">or</span>
                     <a href="#" class="login__link">
                         <i class="fa fa-money"></i>
