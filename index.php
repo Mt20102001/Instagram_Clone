@@ -16,7 +16,7 @@
             <div class="login__column">
                 <div class="login__box">
                     <img src="images/loginLogo.png" class="login__logo" />
-                    <form action="feed.html" method="get" class="login__form">
+                    <form action="feed.php" method="get" class="login__form">
                         <input type="text" name="username" placeholder="Username" required />
                         <input type="password" name="password" placeholder="Password" required />
                         <input type="submit" value="Log in" />

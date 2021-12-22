@@ -17,7 +17,7 @@
                 <h2>Sign up to see photos and videos from your friends.</h2>
                 <button>Log in with Facebook</button> 
                 <span class="sign-up__divider">or</span>
-                <form action="feed.html" method="get" class="sign-up__form">
+                <form action="feed.php" method="get" class="sign-up__form">
                     <input type="text" name="email" placeholder="Email or Phone Number" required />
                     <input type="text" name="fullname" placeholder="Full Name" required />
                     <input type="text" name="username" placeholder="Username" required />
@@ -30,7 +30,7 @@
 
             <!--  -->
             <div class="sign-up__box">
-                <span>Have an account?</span> <a href="./index.html">Log in</a>
+                <span>Have an account?</span> <a href="./index.php">Log in</a>
             </div> 
             <!--  -->
 
