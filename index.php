@@ -28,6 +28,13 @@
                         <i class="fa fa-money"></i>
                         Log in with Facebook
                     </a>
+                    <!-- Hiển thị thông báo lỗi vì nhập sai tk or mk -->
+                    <?php 
+                        if (isset ($_GET['error'])) {
+                            echo "<h5 style='color:red'> {$_GET['error']} <h5/>";
+                        }
+                    ?>
+                    <!--  -->
                     <a href="#" class="login__link login__link--small">Forgot password</a>
                 </div>
                 <div class="login__box">

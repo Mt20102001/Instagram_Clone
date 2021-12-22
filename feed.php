@@ -1,3 +1,12 @@
+<?php
+//Trước khi cho người dùng xâm nhập vào bên trong
+//Kiểm tra người dùng có thẻ làm việc hay kh
+session_start();
+if (!isset($_SESSION['WorkCard'])){
+    header("location:index.php");
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,6 +17,7 @@
     <link rel="shortcut icon" href="assets/favicon.svg" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="./css/styles.css">
     <script src="./JS/script.js" defer></script>
+
 </head>
 <!--  -->
 <body>

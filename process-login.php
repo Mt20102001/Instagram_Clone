@@ -1,4 +1,6 @@
 <?php
+//Tạo SEESION: mặc định mỗi phiên làm việc có thời hạn 24 phút
+session_start ();
 //index.php sẽ truyền dữ liệu sang, process-login.php sẽ nhận dữ liệu
 if (isset($_POST['loginBtn'])){ //nếu ấn nút login thì chuyển hướng sang process-login.php
     $username = $_POST['txtUsername'];
@@ -17,9 +19,12 @@ if (isset($_POST['loginBtn'])){ //nếu ấn nút login thì chuyển hướng s
 
     $result = mysqli_query($conn,$sql);
     if (mysqli_num_rows($result) > 0){
-        header("location:feed.php");//Chuyển hướng vào trang chủ IG
+        //Cấp thẻ làm việc
+        $_SESSION['WorkCard'] =  $username; //Cấp thẻ làm việc WorkCard, thẻ có giá trị = Username
+        header("location: feed.php");//Chuyển hướng vào trang chủ IG
     } else {
-        header("location:error.php");//Chuyển hướng đến trang báo lỗi
+        $error = "Rất tiếc, tên đăng nhập hoặc mật khẩu của bạn không đúng. Vui lòng kiểm tra lại";
+        header("location:index.php?error=$error");//Chuyển hướng, hiển thị thông báo lỗi vì nhập sai tk, mk
     }
 
     //Bước 03: Đóng kết nối
