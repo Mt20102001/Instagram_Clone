@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Profile | Vietgram</title>
+    <title>Profile | Instagram</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -91,39 +91,39 @@
                 <img src="images/feedPhoto.jpg" />
                 <div class="profile__photo-overlay">
                     <span class="overlay__item">
-                            <i class="fa fa-heart"></i>
-                            486
-                        </span>
+                        <i class="fa fa-heart"></i>
+                        486
+                    </span>
                     <span class="overlay__item">
-                            <i class="fa fa-comment"></i>
-                            344
-                        </span>
+                        <i class="fa fa-comment"></i>
+                        344
+                    </span>
                 </div>
             </div>
             <div class="profile__photo">
                 <img src="images/feedPhoto.jpg" />
                 <div class="profile__photo-overlay">
                     <span class="overlay__item">
-                                <i class="fa fa-heart"></i>
-                                486
-                            </span>
+                        <i class="fa fa-heart"></i>
+                        486
+                    </span>
                     <span class="overlay__item">
-                                <i class="fa fa-comment"></i>
-                                344
-                            </span>
+                        <i class="fa fa-comment"></i>
+                        344
+                    </span>
                 </div>
             </div>
             <div class="profile__photo">
                 <img src="images/feedPhoto.jpg" />
                 <div class="profile__photo-overlay">
                     <span class="overlay__item">
-                                    <i class="fa fa-heart"></i>
-                                    486
-                                </span>
+                        <i class="fa fa-heart"></i>
+                        486
+                    </span>
                     <span class="overlay__item">
-                                    <i class="fa fa-comment"></i>
-                                    344
-                                </span>
+                        <i class="fa fa-comment"></i>
+                        344
+                    </span>
                 </div>
             </div>
         </section>
@@ -146,7 +146,7 @@
             </nav>
         </div>
         <div class="footer__column">
-            <span class="footer__copyright">© 2017 Vietgram</span>
+            <span class="footer__copyright">© 2021 Instagram From Meta</span>
         </div>
     </footer>
 </body>

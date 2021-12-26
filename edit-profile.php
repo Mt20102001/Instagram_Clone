@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Edit Profile | Vietgram</title>
+    <title>Edit Profile | Instagram</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -104,7 +104,7 @@
             </nav>
         </div>
         <div class="footer__column">
-            <span class="footer__copyright">© 2017 Vietgram</span>
+            <span class="footer__copyright">© 2021 Instagram From Meta</span>
         </div>
     </footer>
 </body>
