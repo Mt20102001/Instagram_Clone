@@ -221,6 +221,7 @@ img {
     width: 63%;
 }
 
+
 .text-none {
     display: block;
     text-align: center;
@@ -255,11 +256,6 @@ img {
 
 .text-none button:active {
     background-color: #3cb0fd;
-}
-
-.box-chat-friend-select {
-    width: 63%;
-    display: none;
 }
 
 .name-friend {
