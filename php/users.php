@@ -6,7 +6,7 @@
     $query = mysqli_query($conn, $sql);
     $output = "";
     if(mysqli_num_rows($query) == 0){
-        $output .= "No users are available to chat";
+        $output .= 'Chưa có người bạn nào, hãy kết bạn để bắt đầu chat.';
     }elseif(mysqli_num_rows($query) > 0){
         include_once "data.php";
     }

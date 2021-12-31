@@ -8,14 +8,14 @@ while ($row = mysqli_fetch_assoc($query)) {
     (mysqli_num_rows($query2) > 0) ? $result = $row2['msg'] : $result = "No message available";
     (strlen($result) > 28) ? $msg =  substr($result, 0, 28) . '...' : $msg = $result;
     if (isset($row2['outgoing_msg_id'])) {
-        ($outgoing_id == $row2['outgoing_msg_id']) ? $you = "You: " : $you = "";
+        ($outgoing_id == $row2['outgoing_msg_id']) ? $you = "Bạn: " : $you = "";
     } else {
         $you = "";
     }
     ($row['status'] == "Offline now") ? $offline = "offline" : $offline = "";
     ($outgoing_id == $row['unique_id']) ? $hid_me = "hide" : $hid_me = "";
 
-    $output .= '<a href="inbox.php?user_id=' . $row['unique_id'] . '" class="side-menu__chat" id="friend" onClick="friendSelect()">
+    $output .= '<a href="chat.php?user_id=' . $row['unique_id'] . '" class="side-menu__chat" id="'. $row['unique_id'] . '">
                             <div class="side-menu__chat-avatar">
                                 <img src="php/images/' . $row['img'] . '" alt="User Picture">
                             </div>
