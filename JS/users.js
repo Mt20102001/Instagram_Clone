@@ -1,11 +1,5 @@
 usersList = document.querySelector(".users-list");
-continueBtn = document.querySelector(".send-btn");
-var send = true;
 
-
-continueBtn.onclick = ()=>{
-  send = true;
-}
 
 setInterval(() =>{
   let xhr = new XMLHttpRequest();
@@ -18,9 +12,6 @@ setInterval(() =>{
       }
     }
   }
-  if (send) {
-    xhr.send();
-    send = false;
-  }
+  xhr.send();
 }, 500);
 

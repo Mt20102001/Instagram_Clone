@@ -1,13 +1,49 @@
+// Elements
+const avatarFriendOnTitle = document.querySelector('.avatar-and-name-user a img');
+const nameFriendOnTitle = document.querySelector('.name-friend h5');
+const textChat = document.getElementById('type-mess');
+const imageButton = document.getElementById('image-button');
+const likeButton = document.getElementById('like-button');
 const form = document.querySelector(".input"),
 incoming_id = form.querySelector(".incoming_id").value,
 inputField = form.querySelector(".input-field"),
 sendBtn = form.querySelector(".send-btn"),
-chatBox = document.querySelector(".chat-box");
+chatBox = document.getElementById('chatBox');
+chat = document.querySelector('.box-show-mess');
 
 form.onsubmit = (e)=>{
     e.preventDefault();
 }
 
+// ===================================
+// Disable button whenever a text field is empty dynamically
+function success() {
+    if (textChat.value === "") {
+        document.getElementById('like-button').style.display = "block";
+        document.getElementById('image-button').style.display = "block";
+        document.getElementById('send-button').style.display = "none";
+        textChat.style.width = "80%";
+    }
+    else {
+        document.getElementById('like-button').style.display = "none";
+        document.getElementById('image-button').style.display = "none";
+        document.getElementById('send-button').style.display = "block";
+        textChat.style.width = "87%";
+    }
+}
+
+
+// ===================================
+// SEND MESS WHEN TAP ENTER
+textChat.addEventListener("keyup", function(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        document.getElementById('send-button').click();
+        success();
+    }
+});
+
+// ===================================
 sendBtn.onclick = ()=>{
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "php/insert-chat.php", true);
@@ -16,20 +52,15 @@ sendBtn.onclick = ()=>{
           if(xhr.status === 200){
               inputField.value = "";
               scrollToBottom();
+              success();
           }
       }
     }
     let formData = new FormData(form);
     xhr.send(formData);
 }
-chatBox.onmouseenter = ()=>{
-    chatBox.classList.add("active");
-}
 
-chatBox.onmouseleave = ()=>{
-    chatBox.classList.remove("active");
-}
-
+// ===================================
 setInterval(() =>{
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "php/get-chat.php", true);
@@ -40,6 +71,7 @@ setInterval(() =>{
             chatBox.innerHTML = data;
             if(!chatBox.classList.contains("active")){
                 scrollToBottom();
+                success();
               }
           }
       }
@@ -48,7 +80,8 @@ setInterval(() =>{
     xhr.send("incoming_id="+incoming_id);
 }, 500);
 
-function scrollToBottom(){
-    chatBox.scrollTop = chatBox.scrollHeight;
-  }
+// ===================================
+function scrollToBottom() {
+	chat.scrollTop = chat.scrollHeight;
+}
   
