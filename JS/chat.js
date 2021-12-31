@@ -70,7 +70,6 @@ setInterval(() =>{
             let data = xhr.response;
             chatBox.innerHTML = data;
             if(!chatBox.classList.contains("active")){
-                scrollToBottom();
                 success();
               }
           }
