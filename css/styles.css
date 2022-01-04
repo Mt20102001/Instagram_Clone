@@ -1,8 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600");
+@import "error.css";
 @import "reset.css";
 @import "variables.css";
 @import "globals.css";
 @import "login.css";
+@import "sign-up.css";
 @import "footer.css";
 @import "navigation.css";
 @import "explore.css";
@@ -10,3 +12,5 @@
 @import "profile.css";
 @import "edit-profile.css";
 @import "mobile.css";
+@import "inbox.css";
+@import "chat.css";
