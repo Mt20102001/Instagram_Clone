@@ -17,7 +17,7 @@ if (!isset($_SESSION['unique_id'])) {
     <link rel="stylesheet" type="text/css" href="./css/styles.css">
 </head>
 
-<body>
+<body ondragstart="return false;" ondrop="return false;">
     <?php
     include './partials/header-inbox.php';
     ?>

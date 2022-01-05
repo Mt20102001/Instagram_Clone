@@ -18,7 +18,7 @@ if (!isset($_SESSION['unique_id'])) {
     <script src="JS/script.js" defer></script>
 </head>
 
-<body>
+<body ondragstart="return false;" ondrop="return false;">
     <?php
     include './partials/header-home.php';
     ?>
@@ -247,7 +247,7 @@ if (!isset($_SESSION['unique_id'])) {
                     </button>
                 </div>
 
-                <div class="posts">
+                <div id="content_area" class="posts">
                     <article class="post">
                         <div class="post__header">
                             <div class="post__profile">
@@ -636,13 +636,13 @@ if (!isset($_SESSION['unique_id'])) {
                         <a href="https://github.com/Qa160601" target="_blank"><?php echo $row['username'] ?></a>
                         <span><?php echo $row['fullname'] ?></span>
                     </div>
-                    <button class="side-menu__user-button"><a href="php/logout.php?logout_id=<?php echo $row['unique_id']; ?>">Switch</a></button>
+                    <button class="side-menu__user-button"><a href="php/logout.php?logout_id=<?php echo $row['unique_id']; ?>">Chuyển</a></button>
                 </div>
 
                 <div class="side-menu__suggestions-section">
                     <div class="side-menu__suggestions-header">
-                        <h2>Suggestions for You</h2>
-                        <button>See All</button>
+                        <h2>Gợi ý cho bạn</h2>
+                        <button>Xem tất cả</button>
                     </div>
                     <div class="side-menu__suggestions-content">
                         <div class="side-menu__suggestion">
@@ -653,7 +653,7 @@ if (!isset($_SESSION['unique_id'])) {
                                 <a href="#">usernick16</a>
                                 <span>Followed by user1, user2 and 9 others</span>
                             </div>
-                            <button class="side-menu__suggestion-button">Follow</button>
+                            <button class="side-menu__suggestion-button">Theo dõi</button>
                         </div>
                         <div class="side-menu__suggestion">
                             <a href="#" class="side-menu__suggestion-avatar">
@@ -663,7 +663,7 @@ if (!isset($_SESSION['unique_id'])) {
                                 <a href="#">usernick17</a>
                                 <span>Followed by user1, user2 and 3 others</span>
                             </div>
-                            <button class="side-menu__suggestion-button">Follow</button>
+                            <button class="side-menu__suggestion-button">Theo dõi</button>
                         </div>
                         <div class="side-menu__suggestion">
                             <a href="#" class="side-menu__suggestion-avatar">
@@ -673,7 +673,7 @@ if (!isset($_SESSION['unique_id'])) {
                                 <a href="#">usernick18</a>
                                 <span>Followed by user1 and 9 others</span>
                             </div>
-                            <button class="side-menu__suggestion-button">Follow</button>
+                            <button class="side-menu__suggestion-button">Theo dõi</button>
                         </div>
                         <div class="side-menu__suggestion">
                             <a href="#" class="side-menu__suggestion-avatar">
@@ -683,7 +683,7 @@ if (!isset($_SESSION['unique_id'])) {
                                 <a href="#">usernick19</a>
                                 <span>Followed by user1 and 3 others</span>
                             </div>
-                            <button class="side-menu__suggestion-button">Follow</button>
+                            <button class="side-menu__suggestion-button">Theo dõi</button>
                         </div>
                         <div class="side-menu__suggestion">
                             <a href="#" class="side-menu__suggestion-avatar">
@@ -693,7 +693,7 @@ if (!isset($_SESSION['unique_id'])) {
                                 <a href="#">usernick20</a>
                                 <span>Followed by user1 and 6 others</span>
                             </div>
-                            <button class="side-menu__suggestion-button">Follow</button>
+                            <button class="side-menu__suggestion-button">Theo dõi</button>
                         </div>
                     </div>
                 </div>

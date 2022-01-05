@@ -55,10 +55,6 @@ body {
     flex-direction: column;
 }
 
-svg {
-    display: block;
-}
-
 img {
     max-width: 100%;
 }
@@ -226,10 +222,6 @@ img {
     display: block;
     text-align: center;
     transform: translateY(120%);
-}
-
-.logo {
-    display: inline-block;
 }
 
 .mess h1 {

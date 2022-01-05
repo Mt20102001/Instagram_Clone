@@ -47,10 +47,6 @@ body {
   overflow-y: auto;
 }
 
-svg {
-  display: block;
-}
-
 img {
   max-width: 100%;
 }
