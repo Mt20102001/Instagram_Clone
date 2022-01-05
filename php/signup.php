@@ -38,24 +38,24 @@
                                         $_SESSION['unique_id'] = $result['unique_id'];
                                         echo "success";
                                     }else{
-                                        echo "This email address not Exist!";
+                                        echo "Email này không tồn tại!";
                                     }
                                 }else{
-                                    echo "Something went wrong. Please try again!";
+                                    echo "Có lỗi xảy ra. Vui lòng thử lại!";
                                 }
                             }
                         }else{
-                            echo "Please upload an image file - jpeg, png, jpg";
+                            echo "Chỉ hỗ trợ các file có dạng - jpeg, png, jpg";
                         }
                     }else{
-                        echo "Please upload an image file - jpeg, png, jpg";
+                        echo "Chọn một file ảnh có định dạng - jpeg, png, jpg";
                     }
                 }
             }
         }else{
-            echo "$email is not a valid email!";
+            echo "$email không đúng định dạng email!";
         }
     }else{
-        echo "All input fields are required!";
+        echo "Vui lòng điền đầy đủ thông tin!";
     }
 ?>
