@@ -61,24 +61,30 @@
             ?>
             <!--  -->
 
-            <button class="profile-button">
+            <button class="profile-button" onclick="menuOnOff()">
                 <div class="profile-button__border"></div>
                 <div class="profile-button__picture">
                     <img src="./php/images/<?php echo $row['img'] ?>" alt="User Picture">
                 </div>
                 <div class="menu">
-                    <!-- <h3><?php echo $row['fullname'] ?><br><span><?php echo $row['username'] ?></span></h3>
+                    <h3><?php echo $row['fullname'] ?><br><span><?php echo $row['username'] ?></span></h3>
                     <ul>
-                        <li><img src="./images/user.png" alt=""></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul> -->
+                        <li><img src="./assets/icons/user.svg" alt=""><a href="./profile.php">Trang cá nhân</a></li>
+                        <li><img src="./assets/icons/bookmark.svg" alt=""><a href="#">Đã lưu</a></li>
+                        <li><img src="./assets/icons/settings.svg" alt=""><a href="#">Cài đặt</a></li>
+                        <li><img src="./assets/icons/switch.svg" alt=""><a href="php/logout.php?logout_id=<?php echo $row['unique_id']; ?>">Chuyển tài khoản</a></li>
+                        <li><a href="php/logout.php?logout_id=<?php echo $row['unique_id']; ?>">Đăng xuất</a></li>
+                    </ul>
                 </div>
             </button>
         </div>
     </nav>
 
 </header>
+
+<script>
+    function menuOnOff() {
+        const toggleMenu = document.querySelector('.menu');
+        toggleMenu.classList.toggle('active');
+    }
+</script>

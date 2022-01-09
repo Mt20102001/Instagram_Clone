@@ -374,6 +374,14 @@ img {
   overflow: hidden;
   position: relative;
 }
+.post__avatar img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .post__avatar::after {
   content: "";
   position: absolute;
@@ -549,6 +557,14 @@ img {
 
   overflow: hidden;
   position: relative;
+}
+.side-menu__user-avatar img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .side-menu__user-avatar::after {
   content: "";
@@ -766,6 +782,14 @@ img {
 
   overflow: hidden;
   position: relative;
+}
+.profile-button__picture img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .profile-button__picture::after {
   content: "";

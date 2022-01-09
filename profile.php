@@ -1,3 +1,12 @@
+<?php
+session_start();
+include_once "php/config.php";
+if (!isset($_SESSION['unique_id'])) {
+    header("location: login.php");
+}
+$id = $_SESSION['unique_id'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,44 +21,19 @@
 
 <body>
     <nav class="navigation">
-        <div class="navigation__column">
-            <a href="feed.php">
-                <img src="images/logo.png" />
-            </a>
-        </div>
-        <div class="navigation__column">
-            <i class="fa fa-search"></i>
-            <input type="text" placeholder="Search">
-        </div>
-        <div class="navigation__column">
-            <ul class="navigations__links">
-                <li class="navigation__list-item">
-                    <a href="explore.php" class="navigation__link">
-                        <i class="fa fa-compass fa-lg"></i>
-                    </a>
-                </li>
-                <li class="navigation__list-item">
-                    <a href="#" class="navigation__link">
-                        <i class="fa fa-heart-o fa-lg"></i>
-                    </a>
-                </li>
-                <li class="navigation__list-item">
-                    <a href="profile.php" class="navigation__link">
-                        <i class="fa fa-user-o fa-lg"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
+        <?php
+        include("./partials/header-user.php");
+        ?>
     </nav>
     <main id="profile">
         <header class="profile__header">
             <div class="profile__column">
-                <img src="images/avatar.jpg" />
+                <img src="./php/images/<?php echo $row['img'] ?>" alt="User Picture">
             </div>
             <div class="profile__column">
                 <div class="profile__title">
-                    <h3 class="profile__username">serranoarevalo</h3>
-                    <a href="edit-profile.php">Edit profile</a>
+                    <h3 class="profile__username"><?php echo $row['username'] ?></h3>
+                    <a href="edit-profile.php">Chỉnh sửa trang cá nhân</a>
                     <i class="fa fa-cog fa-lg"></i>
                 </div>
                 <ul class="profile__stats">
@@ -65,67 +49,39 @@
                 </ul>
                 <p class="profile__bio">
                     <span class="profile__full-name">
-                        Nicolás Serrano Arévalo
-                    </span> Doing whatever and eating Pho Lorem ipsum dolor sit amet consectetur, adipisicing
+                        <?php echo $row['fullname'] ?>
+                    </span>
+                    <!-- Doing whatever and eating Pho Lorem ipsum dolor sit amet consectetur, adipisicing
                     elit. Ducimus suscipit praesentium eveniet quibusdam ipsam omnis fugit. Tempore voluptates ratione recusandae
                     natus illo perspiciatis suscipit, odio consequuntur quasi obcaecati minus! Omnis.
-                    <a href="#">serranoarevalo.com</a>
+                    <a href="#">serranoarevalo.com</a> -->
                 </p>
             </div>
         </header>
         <section class="profile__photos">
-            <div class="profile__photo">
-                <img src="images/feedPhoto.jpg" />
-                <div class="profile__photo-overlay">
-                    <span class="overlay__item">
-                        <i class="fa fa-heart"></i>
-                        486
-                    </span>
-                    <span class="overlay__item">
-                        <i class="fa fa-comment"></i>
-                        344
-                    </span>
+            <?php
+            include("./php/config.php");
+            $query = mySQLi_query($conn, "SELECT * from photos where user_id='$id'");
+            while ($row = mySQLi_fetch_array($query)) {
+                $id = $row['photo_id'];
+            ?>
+                <div class="profile__photo">
+                    <img src="<?php echo $row['location']; ?>">
+                    <div class="profile__photo-overlay">
+                        <span class="overlay__item">
+                            <i class="fa fa-heart"></i>
+                            486
+                        </span>
+                        <span class="overlay__item">
+                            <i class="fa fa-comment"></i>
+                            344
+                        </span>
+                    </div>
                 </div>
-            </div>
-            <div class="profile__photo">
-                <img src="images/feedPhoto.jpg" />
-                <div class="profile__photo-overlay">
-                    <span class="overlay__item">
-                        <i class="fa fa-heart"></i>
-                        486
-                    </span>
-                    <span class="overlay__item">
-                        <i class="fa fa-comment"></i>
-                        344
-                    </span>
-                </div>
-            </div>
-            <div class="profile__photo">
-                <img src="images/feedPhoto.jpg" />
-                <div class="profile__photo-overlay">
-                    <span class="overlay__item">
-                        <i class="fa fa-heart"></i>
-                        486
-                    </span>
-                    <span class="overlay__item">
-                        <i class="fa fa-comment"></i>
-                        344
-                    </span>
-                </div>
-            </div>
-            <div class="profile__photo">
-                <img src="images/feedPhoto.jpg" />
-                <div class="profile__photo-overlay">
-                    <span class="overlay__item">
-                        <i class="fa fa-heart"></i>
-                        486
-                    </span>
-                    <span class="overlay__item">
-                        <i class="fa fa-comment"></i>
-                        344
-                    </span>
-                </div>
-            </div>
+
+            <?php
+            }
+            ?>
         </section>
     </main>
     <footer class="footer">
