@@ -50,7 +50,7 @@
   font-weight: 400;
 }
 
-.menu ul li {
+.menu ul a li {
   list-style: none;
   padding: 10px 0;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
@@ -59,29 +59,28 @@
   cursor: pointer;
 }
 
-.menu ul li img {
+.menu ul a li img {
   max-width: 20px;
   margin-right: 10px;
   opacity: 0.5;
   transition: 0.5s;
 }
 
-.menu ul li:hover img {
+.menu ul a li:hover img {
   opacity: 1;
 }
 
-.menu ul li a {
-  display: inline-block;
+.menu ul a {
   text-decoration: none;
   color: #555;
   font-weight: 500;
   transition: 0.5s;
 }
 
-.menu ul li:hover a {
+.menu ul a li:hover {
   color: #262626;
 }
 
-.menu ul li:hover {
+.menu ul a li:hover {
   background-color: hsl(0, 0%, 98%);
 }

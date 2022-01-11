@@ -265,19 +265,20 @@ include './partials/check-time.php';
                     <article class="post">
                         <div class="post__header">
                             <div class="post__profile">
-                                <a href="#" target="_blank" class="post__avatar">
+                                <a href="./profile.php" target="_blank" class="post__avatar">
                                     <img src="./php/images/<?php echo $row['img'] ?>" alt="User Picture">
                                 </a>
-                                <a href="#" target="_blank" class="post__user"><?php echo $posted_by ?></a>
+                                <a href="./profile.php" target="_blank" class="post__user"><?php echo $posted_by ?></a>
                             </div>
-
-                            <button class="post__more-options">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="6.5" cy="11.5" r="1.5" fill="var(--text-dark)" />
-                                    <circle cx="12" cy="11.5" r="1.5" fill="var(--text-dark)" />
-                                    <circle cx="17.5" cy="11.5" r="1.5" fill="var(--text-dark)" />
-                                </svg>
-                            </button>
+                            <a href="delete_post.php<?php echo '?id=' . $post_id; ?>" title="Delete your post">
+                                <button class="post__more-options">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="6.5" cy="11.5" r="1.5" fill="var(--text-dark)" />
+                                        <circle cx="12" cy="11.5" r="1.5" fill="var(--text-dark)" />
+                                        <circle cx="17.5" cy="11.5" r="1.5" fill="var(--text-dark)" />
+                                    </svg>
+                                </button>
+                            </a>
                         </div>
 
                         <div class="post__content">
@@ -325,7 +326,7 @@ include './partials/check-time.php';
 
                                 <div class="post__description">
                                     <span>
-                                        <a class="post__name--underline" href="https://github.com/leocosta1" target="_blank"><?php echo $posted_by ?></a>
+                                        <a class="post__name--underline" href="./profile.php" target="_blank"><?php echo $posted_by ?></a>
                                         <?php echo $row['content']; ?>
                                     </span>
                                 </div>
@@ -333,6 +334,67 @@ include './partials/check-time.php';
                                 <span class="post__date-time"><?php echo $time = time_stamp($time); ?></span>
                             </div>
                         </div>
+
+                        <div style="margin-left: 17px; background-color: var(--primary);">
+                            <span class="post__date-time">Tất cả bình luận</span>
+                            <?php
+                            include("./php/config.php");
+                            $comment = mySQLi_query($conn, "SELECT * from comments where post_id='$post_id' order by post_id DESC");
+                            while ($row = mySQLi_fetch_array($comment)) {
+                                $comment_id = $row['comment_id'];
+                                $content_comment = $row['content_comment'];
+                                $time = $row['created'];
+                                $post_id = $row['post_id'];
+                                $name = $row['name'];
+                                $user = $_SESSION['unique_id'];
+                            ?>
+
+                                <div class="post__description" style="margin:5px 0 5px 10px;" <?php echo $comment_id ?>>
+                                    <span>
+                                        <a class="post__name--underline" href="./profile.php" target="_blank"><?php echo $name ?></a>
+                                        <?php echo $row['content_comment']; ?>
+                                    </span>
+                                </div>
+
+                            <?php
+                            }
+                            ?>
+                        </div>
+
+
+
+                        <div class="input-mess">
+                            <?php
+                            $sql = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = {$_SESSION['unique_id']}");
+                            if (mysqli_num_rows($sql) > 0) {
+                                $row3 = mysqli_fetch_assoc($sql);
+                            }
+                            ?>
+                            <form method="POST" action="comment.php" class="input">
+                                <input type="hidden" name="post_id" value="<?php echo $post_id ?>">
+                                <input type="hidden" name="user_id" value="<?php echo $row3['username'] ?>">
+                                <a style="cursor: pointer;">
+                                    <div class="new-mess">
+                                        <svg color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24">
+                                            <path d="M15.83 10.997a1.167 1.167 0 101.167 1.167 1.167 1.167 0 00-1.167-1.167zm-6.5 1.167a1.167 1.167 0 10-1.166 1.167 1.167 1.167 0 001.166-1.167zm5.163 3.24a3.406 3.406 0 01-4.982.007 1 1 0 10-1.557 1.256 5.397 5.397 0 008.09 0 1 1 0 00-1.55-1.263zM12 .503a11.5 11.5 0 1011.5 11.5A11.513 11.513 0 0012 .503zm0 21a9.5 9.5 0 119.5-9.5 9.51 9.51 0 01-9.5 9.5z">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                </a>
+                                <input id="type-mess" type="text" name="content_comment" class="input-field" placeholder="Viết bình luận... " autocomplete="off" style="width: 88%;">
+                                <div class="right-button-input ">
+                                    <button id="like-button" name="post_comment">
+                                        <div class="new-mess ">
+                                            <svg color="#262626 " fill="#262626 " height="24 " role="img " viewBox="0 0 24 24 " width="24 ">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M22.8555 3.44542C22.6978 3.16703 22.3962 3 22.0714 3L2.91369 3.01392C2.52859 3.01392 2.19453 3.25055 2.05997 3.60781C1.96254 3.86764 1.98574 4.14603 2.11565 4.37338C2.16669 4.45689 2.23165 4.53577 2.31052 4.60537L9.69243 10.9712L11.4927 20.5338C11.5623 20.9096 11.8499 21.188 12.2304 21.2483C12.6062 21.3086 12.9774 21.1323 13.1723 20.8029L22.8509 4.35018C23.0179 4.06715 23.0179 3.72381 22.8555 3.44542ZM4.21748 4.39194H19.8164L10.4255 9.75089L4.21748 4.39194ZM12.6248 18.9841L11.1122 10.948L20.5171 5.58436L12.6248 18.9841Z" fill="var(--text-dark)" stroke="var(--text-dark)" stroke-width="0.3"></path>
+                                            </svg>
+                                        </div>
+                                    </button>
+                                </div>
+                            </form>
+
+                        </div>
+
                     </article>
                 <?php
                 }
@@ -352,11 +414,11 @@ include './partials/check-time.php';
                 <!--  -->
 
                 <div class="side-menu__user-profile">
-                    <a href="https://github.com/Qa160601" target="_blank" class="side-menu__user-avatar">
+                    <a href="profile.php" target="_blank" class="side-menu__user-avatar">
                         <img src="./php/images/<?php echo $row['img'] ?>" alt="User Picture">
                     </a>
                     <div class="side-menu__user-info">
-                        <a href="https://github.com/Qa160601" target="_blank"><?php echo $row['username'] ?></a>
+                        <a href="profile.php" target="_blank"><?php echo $row['username'] ?></a>
                         <span><?php echo $row['fullname'] ?></span>
                     </div>
                     <button class="side-menu__user-button"><a href="php/logout.php?logout_id=<?php echo $row['unique_id']; ?>">Chuyển</a></button>

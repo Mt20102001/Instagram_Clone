@@ -93,11 +93,21 @@
                 <div class="menu">
                     <h3><?php echo $row['fullname'] ?><br><span><?php echo $row['username'] ?></span></h3>
                     <ul>
-                        <li><img src="./assets/icons/user.svg" alt=""><a href="./profile.php">Trang cá nhân</a></li>
-                        <li><img src="./assets/icons/bookmark.svg" alt=""><a href="#">Đã lưu</a></li>
-                        <li><img src="./assets/icons/settings.svg" alt=""><a href="#">Cài đặt</a></li>
-                        <li><img src="./assets/icons/switch.svg" alt=""><a href="php/logout.php?logout_id=<?php echo $row['unique_id']; ?>">Chuyển tài khoản</a></li>
-                        <li><a href="php/logout.php?logout_id=<?php echo $row['unique_id']; ?>">Đăng xuất</a></li>
+                        <a href="./profile.php">
+                            <li><img src="./assets/icons/user.svg" alt="">Trang cá nhân</li>
+                        </a>
+                        <a href="#">
+                            <li><img src="./assets/icons/bookmark.svg" alt="">Đã lưu</li>
+                        </a>
+                        <a href="#">
+                            <li><img src="./assets/icons/settings.svg" alt="">Cài đặt</li>
+                        </a>
+                        <a href="php/logout.php?logout_id=<?php echo $row['unique_id']; ?>">
+                            <li><img src="./assets/icons/switch.svg" alt="">Chuyển tài khoản</li>
+                        </a>
+                        <a href="php/logout.php?logout_id=<?php echo $row['unique_id']; ?>">
+                            <li>Đăng xuất</li>
+                        </a>
                     </ul>
                 </div>
             </button>
