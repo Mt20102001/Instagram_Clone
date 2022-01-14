@@ -413,7 +413,7 @@ include './partials/check-time.php';
                 ?>
                 <!--  -->
 
-                <div class="side-menu__user-profile">
+                <div class="sizzde-menu__user-profile">
                     <a href="profile.php" target="_blank" class="side-menu__user-avatar">
                         <img src="./php/images/<?php echo $row['img'] ?>" alt="User Picture">
                     </a>
