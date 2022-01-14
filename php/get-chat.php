@@ -33,5 +33,4 @@
     }else{
         header("location: ../inbox.php");
     }
-
 ?>
