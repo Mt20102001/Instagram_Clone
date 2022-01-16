@@ -1,4 +1,6 @@
 <?php
+//Trước khi cho người dùng vào bên trong 
+//phải kiểm tra thẻ làm việc
 session_start();
 if (isset($_SESSION['unique_id'])) {
     header("location: login.php");
@@ -28,7 +30,7 @@ if (isset($_SESSION['unique_id'])) {
                 <span class="sign-up__divider">or</span>
                 <form action="#" method="POST" enctype="multipart/form-data" class="sign-up__form" autocomplete="on">
                     <div class="error"></div>
-                    <input type="text" name="email" placeholder="Email" required autocomplete="off" />
+                    <input type="text" name="email" placeholder="Email" required autocomplete="off" /> <!-- trình duyệt không được phép nhập hoặc chọn giá trị cho trường này-->
                     <input type="text" name="fullname" placeholder="Full name" required autocomplete="off">
                     <input type="text" name="username" placeholder="User name" required autocomplete="off">
                     <input type="password" name="password" placeholder="Password" required autocomplete="off" />

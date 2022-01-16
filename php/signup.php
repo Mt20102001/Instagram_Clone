@@ -1,17 +1,21 @@
 <?php
+
     session_start();
-    include_once "config.php";
+    require "config.php";
+     //index.php TRUYỀN DỮ LIỆU SANG: NHẬN DỮ LIỆU TỪ index.php gửi sang
     $fullname = mysqli_real_escape_string($conn, $_POST['fullname']);
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
-    if(!empty($fullname) && !empty($username) && !empty($email) && !empty($password)){
+    if(!empty($fullname) && !empty($username) && !empty($email) && !empty($password)){ //Kiểm tra người dùng đã nhập chưa?
         if(filter_var($email, FILTER_VALIDATE_EMAIL)){
             $sql = mysqli_query($conn, "SELECT * FROM users WHERE email = '{$email}'");
-            if(mysqli_num_rows($sql) > 0){
-                echo "$email - This email already exist!";
+            if(mysqli_num_rows($sql) > 0){//Kiểm tra dữ liệu đã tồn tại hay chưa
+                echo "$email - Email này đã tồn tại!"; //Báo dữ liệu đã tồn tại mời đăng kí tên tk khác
             }else{
-                if(isset($_FILES['image'])){
+                //Xử lý việc up ảnh
+                if(isset($_FILES['image'])){ 
+
                     $img_name = $_FILES['image']['name'];
                     $img_type = $_FILES['image']['type'];
                     $tmp_name = $_FILES['image']['tmp_name'];
@@ -53,9 +57,10 @@
                 }
             }
         }else{
-            echo "$email không đúng định dạng email!";
+            echo "$email không đúng định dạng email!"; //Báo lỗi sai định dạng email
         }
     }else{
-        echo "Vui lòng điền đầy đủ thông tin!";
+        echo "Vui lòng điền đầy đủ thông tin!"; //Báo lỗi chưa điền đầy đủ
     }
+    
 ?>

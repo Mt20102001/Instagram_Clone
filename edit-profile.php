@@ -1,3 +1,12 @@
+<?php
+session_start();
+include_once "php/config.php";
+if (!isset($_SESSION['unique_id'])) {
+    header("location: login.php");
+}
+$id = $_SESSION['unique_id'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,75 +21,26 @@
 
 <body>
     <nav class="navigation">
-        <div class="navigation__column">
-            <a href="feed.php">
-                <img src="images/logo.png" />
-            </a>
-        </div>
-        <div class="navigation__column">
-            <i class="fa fa-search"></i>
-            <input type="text" placeholder="Search">
-        </div>
-        <div class="navigation__column">
-            <ul class="navigations__links">
-                <li class="navigation__list-item">
-                    <a href="explore.php" class="navigation__link">
-                        <i class="fa fa-compass fa-lg"></i>
-                    </a>
-                </li>
-                <li class="navigation__list-item">
-                    <a href="#" class="navigation__link">
-                        <i class="fa fa-heart-o fa-lg"></i>
-                    </a>
-                </li>
-                <li class="navigation__list-item">
-                    <a href="profile.php" class="navigation__link">
-                        <i class="fa fa-user-o fa-lg"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
+    <?php
+        include("./partials/header-user.php");
+    ?>
     </nav>
     <main id="edit-profile">
         <div class="edit-profile__container">
             <header class="edit-profile__header">
                 <div class="edit-profile__avatar-container">
-                    <img src="images/avatar.jpg" class="edit-profile__avatar" />
+                <img src="./php/images/<?php echo $row['img'] ?>" alt="User Picture">
                 </div>
-                <h4 class="edit-profile__username">serranoarevalo</h4>
+                <h4 class="edit-profile__username"><?php echo $row['username'] ?></h4>
             </header>
-            <form action="" class="edit-profile__form">
+            <form action="./php/process-change-password.php" method="post" class="edit-profile__form">
                 <div class="form__row">
-                    <label for="full-name" class="form__label">Name:</label>
-                    <input id="full-name" type="text" class="form__input" />
+                    <label for="full-name" class="form__label">Mật khẩu mới:</label>
+                    <input id="full-name" name="new_password" type="text" class="form__input" />
                 </div>
                 <div class="form__row">
-                    <label for="user-name" class="form__label">Username:</label>
-                    <input id="user-name" type="text" class="form__input" />
-                </div>
-                <div class="form__row">
-                    <label for="website" class="form__label">Website:</label>
-                    <input id="website" type="url" class="form__input" />
-                </div>
-                <div class="form__row">
-                    <label for="bio" class="form__label">Bio:</label>
-                    <textarea id="bio"></textarea>
-                </div>
-                <div class="form__row">
-                    <label for="email" class="form__label">Email:</label>
-                    <input id="email" type="email" class="form__input" />
-                </div>
-                <div class="form__row">
-                    <label for="phone" class="form__label">Phone Number:</label>
-                    <input id="phone" type="tel" class="form__input" />
-                </div>
-                <div class="form__row">
-                    <label for="gender" class="form__label">Gender:</label>
-                    <select id="gender">
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="cant">Can't remember</option>
-                    </select>
+                    <label for="user-name" class="form__label">Nhập lại mật khẩu:</label>
+                    <input id="user-name" name="new_password_2"type="text" class="form__input" />
                 </div>
                 <input type="submit" value="Submit">
             </form>
