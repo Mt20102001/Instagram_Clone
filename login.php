@@ -1,4 +1,6 @@
 <?php
+//Trước khi cho người dùng vào bên trong 
+//phải kiểm tra thẻ làm việc
 session_start();
 if (isset($_SESSION['unique_id'])) {
     header("location: feed.php");
