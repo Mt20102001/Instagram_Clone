@@ -13,16 +13,15 @@ if($new_password == $new_password_2){
 
     $sql_change_pass = mysqli_query($conn, "update users set password='$passwd_hash' where unique_id='$user_id'" );
     if($sql_change_pass == true){
-        // tạo session gửi thông báo cho người dùng
-        $_SESSION['message_password'] = 'Thay đổi mật khẩu thành công';
         header('Location: ../feed.php');
     }
     else{
-        $_SESSION['message_password'] = 'Lỗi server, vui lòng quay lại sau';
+        
+        header('Location: ../edit-profile.php');
     }
 }
 else{
-    $_SESSION['message_password'] = 'Mật khẩu nhập không trùng nhau';
+    header('Location: ../edit-profile.php');
 }
 
 
